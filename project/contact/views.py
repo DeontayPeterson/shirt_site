@@ -27,15 +27,16 @@ def contact():
         phone_number = form.phone_number.data
         email = form.email.data
         message = form.message.data
-        send_message(name=name, email=email, body=message)
+        send_message(name=name, email=email, body=message, 
+                     phone_number=phone_number)
 
     return render_template('contact.html', form=form)
 
-def send_message(name, email, body):
+def send_message(name, email, body, phone_number):
     msg = Message(subject='New Message From Website',
                   sender=("Contact form", email),
                   recipients=['africanmangoenjoyer@gmail.com'])
-    msg.body = f"Name: {name}\nEmail: {email}\nMessage: {body}"
+    msg.body = f"Name: {name}\nEmail: {email}\nPhone Number: {phone_number}\nMessage: {body}"
     mail.send(msg)
 
     flash('Message sent!')
