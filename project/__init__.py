@@ -18,5 +18,5 @@ Migrate(app, db)
 
 from project.contact.views import contact_blueprint
 
-app.register_blueprint(contact_blueprint, url_prefix='/contact')
+app.register_blueprint(contact_blueprint)
 
