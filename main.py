@@ -10,11 +10,13 @@ app.config['SECRET_KEY'] = 'key'
 
 @app.route('/')
 def landing_page():
-    return "Welcome!"
+
+    return render_template('landing.html')
 
 
 @app.route('/home')
 def index():
+
     return render_template('index.html')
 
 @app.route('/contact', methods=['GET'])
@@ -29,6 +31,10 @@ def contact():
 
 
     return render_template('contact.html', form=form)
+
+@app.route('/test')
+def test():
+    return render_template('test.html')
 
 
 

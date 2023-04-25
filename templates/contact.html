@@ -1,24 +1,33 @@
 {% extends 'base.html' %}
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+
 {% block content %}
+    <body>
 
-<form method="POST">
+    <form method="POST">
     {{form.hidden_tag()}}
-    {{form.name.label}}{{form.name()}}
-    {{form.phone_number.label}}{{form.phone_number()}}
-    {{form.email.label}}{{form.email()}}
-    {{form.message.label}}{{form.message()}}
-    {{form.submit.label}}{{form.submit()}}
-
-</form>
     
-{% endblock %}
+    {{form.name.label}}{{form.name()}}
+    <br>
+    {{form.phone_number.label}}{{form.phone_number()}}
+    <br>
+    {{form.email.label}}{{form.email()}}
+    <br>
+    {{form.message.label}}{{form.message()}}
+    <br>
+    {{form.submit.label}}{{form.submit()}}
+    
+</form>
+
+
 </body>
 </html>
+{% endblock %}
