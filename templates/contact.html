@@ -11,22 +11,44 @@
 
 {% block content %}
     <body>
+        <div class="form-container">
 
     <form method="POST">
-    {{form.hidden_tag()}}
+        {{form.hidden_tag()}}
+
+    <!--Name entry-->
+    <div class="mb-3">
+    <label class="form-label">{{form.name.label}}</label>
+    {{form.name(class="form-control", placeholder="First, Last")}}    
+    </div>
+
+    <!--Phone Number Entry-->
+    <div class="mb-3">
+        <label class="form-label" >{{form.phone_number.label}}</label>
+        {{form.name(class="form-control", placeholder='e.g. 123-123-1234')}}    
+    </div>
+
+    <!--Email Entry-->
+    <div class="mb-3">
+        <label class="form-label">{{form.email.label}}</label>
+        {{form.email(class='form-control', placeholder='e.g. email@example.com')}}
     
-    {{form.name.label}}{{form.name()}}
-    <br>
-    {{form.phone_number.label}}{{form.phone_number()}}
-    <br>
-    {{form.email.label}}{{form.email()}}
-    <br>
-    {{form.message.label}}{{form.message()}}
-    <br>
-    {{form.submit.label}}{{form.submit()}}
+    </div>
+
+    <!--Message Area-->
+    <div class="mb-3">
+        <label class="form-label">{{form.message.label}}</label>
+        {{form.message(class='form-control', rows=10, placeholder="Enter your message here!")}}
+    
+    </div>
+    </div>
+
+    <!--Submit button-->
+    <div class="mb-3 form-check">
+    {{form.submit(class='btn btn-primary')}}
+    </div>
     
 </form>
-
 
 </body>
 </html>
