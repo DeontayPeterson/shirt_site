@@ -9,5 +9,13 @@ body {
 
 .form-container {
     max-width: 600px;
+} 
+
+.int-container {
+    max-width: 200px;
+}
+
+h1 {
+    text-align: center;
 }
 

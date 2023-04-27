@@ -31,6 +31,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{url_for('contact.contact')}}">Contact</a>
                         </li>
+                        {% if current_user.is_authenticated and current_user.is_admin %}
+                        <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('admin.dashboard')}}">Dashboard</a> 
+                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('admin.logout')}}" method="POST">Logout</a>
+
+                    </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

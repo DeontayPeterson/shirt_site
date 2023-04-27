@@ -1,7 +1,8 @@
 from flask import redirect, url_for, render_template, flash, request, Blueprint
 from flask_login import login_user, logout_user, login_required, current_user
 from project.user import User
-from .forms import LoginForm
+from .forms import LoginForm, AddForm, RemoveForm
+from project.models import Shirt
 
 admin_blueprint = Blueprint('admin', __name__, template_folder='templates/admin')
 
@@ -21,14 +22,25 @@ def login():
             flash('Invalid Username or Password', 'danger')
     return render_template('login.html', form=form)
 
-# Route for admin dashboard
-@admin_blueprint.route('/dashboard')
+@admin_blueprint.route('/logout',)
 @login_required
-def dashboard():
+def logout():
+    logout_user()
+    flash('You have been logged out.')
+    return redirect(url_for('index'))
+
+# Route for admin dashboard
+@admin_blueprint.route('/dashboard',) #methods=['POST', 'GET'])
+@login_required
+def dashboard():  
+
+    addform = AddForm()
+    removeform = RemoveForm()
+
     if not current_user.is_admin:
         flash("You don't have permission to view this page.", 'danger')
         return redirect(url_for('main.idex'))
-    return render_template('dashboard.html')
+    return render_template('dashboard.html', forms={'addform': addform, 'removeform': removeform})
 
 
 

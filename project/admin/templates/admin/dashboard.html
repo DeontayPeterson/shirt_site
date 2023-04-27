@@ -4,4 +4,29 @@
 <h1>ADMIN DASHBOARD</h1>
 <p>Below is the admin dashboard.</p>
 
+<form action="{{url_for('admin.logout')}}" >
+    
+    <div class="btn btn-primary">
+    <button type="submit">Logout</button>
+    </div>
+</form>
+
+<div class="mb-3 form-container">
+    <label class="form-label">{{forms['addform'].name.label}}</label>
+    {{forms['addform'].name(class='form-control', rows=10, placeholder="Enter a shirt to remove")}}
+</div>
+    <div class="mb-3 int-container">
+    <label class="form-label ">{{forms['addform'].price.label}}</label>
+    {{forms['addform'].price(class='form-control', rows=10, placeholder="19.99")}}
+</div>
+
+<div class="mb-3 form-container">
+    <label class="form-label">{{forms['addform'].thumbnail.label}}</label>
+    {{forms['addform'].thumbnail(class='form-control',)}}
+
+
+</div>
+
+
+
 {% endblock %}
