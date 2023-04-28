@@ -4,9 +4,10 @@
 
 <h1>ADMIN LOGIN</h1>
 
+
 <form method='POST' action="">
     {{form.hidden_tag()}}
-
+    <div class="form-container">
     <!--USERNAME-->
     <div class="form-group">
         {{form.username.label}}
@@ -18,14 +19,14 @@
         {{form.password(class='form-control')}}
 
     </div>
-
+</div>
     <div class="form-group">
         {{form.submit(class="btn btn-primary")}}
 
     </div>
 
 
-
+    
 </form>
 
 {% endblock %}

@@ -4,29 +4,32 @@
 <h1>ADMIN DASHBOARD</h1>
 <p>Below is the admin dashboard.</p>
 
-<form action="{{url_for('admin.logout')}}" >
-    
-    <div class="btn btn-primary">
-    <button type="submit">Logout</button>
-    </div>
-</form>
-
+<form method="POST" class="form-container", action="{{url_for('admin.add_shirt')}}">
+    {{forms['addform'].hidden_tag()}}
 <div class="mb-3 form-container">
     <label class="form-label">{{forms['addform'].name.label}}</label>
-    {{forms['addform'].name(class='form-control', rows=10, placeholder="Enter a shirt to remove")}}
+    {{forms['addform'].name(class='form-control', rows=10, placeholder="Enter a shirt to add")}}
+
+    <label class="form-label">{{forms['addform'].thumbnail.label}}</label>
+    {{forms['addform'].thumbnail(class='form-control',)}}
 </div>
     <div class="mb-3 int-container">
     <label class="form-label ">{{forms['addform'].price.label}}</label>
     {{forms['addform'].price(class='form-control', rows=10, placeholder="19.99")}}
 </div>
 
-<div class="mb-3 form-container">
-    <label class="form-label">{{forms['addform'].thumbnail.label}}</label>
-    {{forms['addform'].thumbnail(class='form-control',)}}
-
-
+<div class="form-container">
+<div class="mb-3">
+    <label class="form-label">{{forms['addform'].description.label}}</label>
+    {{forms['addform'].description(class='form-control', rows=7, placeholder="Enter a description for the Tshirt")}}
+</div>
 </div>
 
+<div class="mb-3 form-check">
+    {{forms['addform'].submit(class='btn btn-primary')}}
+</div>
+</form>
 
+<a href="{{url_for('admin.view')}}" >View all Shirts</a>
 
 {% endblock %}
