@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 
 app.config['SECRET_KEY'] = 'key'
+app.config['UPLOAD_FOLDER'] = '/shirt_img'
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///"+os.path.join(basedir, 'data.sqlite')
