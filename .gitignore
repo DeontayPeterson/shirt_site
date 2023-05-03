@@ -2,3 +2,5 @@ test.html
 __pycache__/
 *.sqlite
 *.png
+db_manager.py
+

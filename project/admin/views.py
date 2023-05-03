@@ -59,7 +59,9 @@ def add_shirt():
     
     if request.method == "POST":
         shirt = Shirt(name=addform.name.data, price=addform.price.data, description=addform.description.data,
-                        thumbnail=addform.thumbnail.data, )
+                        thumbnail=addform.thumbnail.data.filename.replace(' ', ""), )
+        
+        # print(addform.thumbnail.data.filename)
         
         #TODO Filter files 
         file = request.files['thumbnail']
@@ -67,9 +69,9 @@ def add_shirt():
         if not file_name in os.listdir('project/shirt_img'):
             file.save(f"project/shirt_img/{file_name}")
 
-        # db.session.add(shirt)
-        # db.session.commit()
-        # flash('Shirt has been added to the database')
+        db.session.add(shirt)
+        db.session.commit()
+        flash('Shirt has been added to the database')
     
     return redirect(url_for('admin.dashboard'))
 
