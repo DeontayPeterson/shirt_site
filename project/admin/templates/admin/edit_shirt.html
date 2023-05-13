@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<img src="{{ url_for('static', filename='shirt_img/' + shirt.thumbnail)}}" alt="", width="250", height="250">
+
+<form method='POST' action="">
+    {{form.hidden_tag()}}
+    {{form.name.label()}}{{form.name}}
+    <br>
+    {{form.price.label()}}{{form.price}}
+    <br>
+    {{form.description.label}}
+    <br>
+    {{form.description}}
+    <br>
+    {{form.submit}}
+
+</form>
+
+
+{% endblock %}

@@ -2,7 +2,7 @@ from flask import redirect, url_for, render_template, flash, request, Blueprint,
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.utils import secure_filename
 from project.user import User
-from .forms import LoginForm, AddForm, RemoveForm
+from .forms import LoginForm, AddForm, RemoveForm, EditShirt
 from project.models import Shirt
 from project import db 
 import shutil
@@ -66,8 +66,8 @@ def add_shirt():
         #TODO Filter files 
         file = request.files['thumbnail']
         file_name = file.filename.replace(" ", "")
-        if not file_name in os.listdir('project/shirt_img'):
-            file.save(f"project/shirt_img/{file_name}")
+        if not file_name in os.listdir('project/static/shirt_img'):
+            file.save(f"project/static/shirt_img/{file_name}")
 
         db.session.add(shirt)
         db.session.commit()
@@ -75,8 +75,8 @@ def add_shirt():
     
     return redirect(url_for('admin.dashboard'))
 
-
-@admin_blueprint.route('/dashboard/view') 
+##TODO paginate.
+@admin_blueprint.route('/dashboard/view', methods=['GET']) 
 @login_required
 def view():
     all_shirts = Shirt.query.all()
@@ -84,5 +84,20 @@ def view():
     
     return render_template('view.html', all_shirts=all_shirts)
 
-#paginate
+@admin_blueprint.route('/dashboard/edit_shirt<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit_shirt(id):
+    shirt = Shirt.query.get_or_404(id)
+    form = EditShirt(obj=shirt)
+
+    if form.validate_on_submit():
+        form.populate_obj(shirt)
+        db.session.commit()
+        flash(f"Shirt {shirt.name} has been updated!")
+
+        return redirect(url_for('admin.view'))
+    
+    print(form.errors)
+    return render_template('edit_shirt.html', form=form, shirt=shirt)
+
 
