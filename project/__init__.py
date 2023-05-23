@@ -24,7 +24,9 @@ login_manager.login_view = "users.login"
 
 from .contact.views import contact_blueprint
 from .admin.views import admin_blueprint
+from .shirts.views import shirts_blueprint
 
 app.register_blueprint(contact_blueprint)
 app.register_blueprint(admin_blueprint)
+app.register_blueprint(shirts_blueprint)
 

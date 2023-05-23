@@ -23,3 +23,51 @@ h1 {
     text-align: center;
 }
 
+
+
+/* Define a responsive grid layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 1rem;
+    padding: 1rem;
+  }
+  
+  /* Define the style for each card */
+  .card {
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  .card-title {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .card-price {
+    color: #006400;
+    font-size: 1.3em;
+    margin: 0.5em 0;
+  }
+  
+  .card-description {
+    flex-grow: 1;
+    color: #333;
+    font-size: 0.9em;
+  }
+  
