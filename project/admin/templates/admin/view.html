@@ -1,22 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p>All shirts will be listed below..</p>
+
 
 <!--Display Shirts-->
+<div class="container">
 {% for shirt in all_shirts %}
 <br>
 
+<div class="shirt-card">
 <h5>{{shirt.name}}</h5>
-<img src="{{url_for('static', filename='shirt_img/' + shirt.thumbnail)}}" alt="{{shirt.name}}" width="250" height="250">
+<img src="{{ url_for('static', filename='shirt_img/' + shirt.thumbnail) }}" alt="{{ shirt.name }}" width="250" height="250">
 <h6>${{shirt.price}}</h6>
 {{shirt.description}}
 <br>
 <a href="{{ url_for('admin.edit_shirt', id=shirt.id) }}">Edit Shirt</a>
 <br>
+<form action="{{ url_for('admin.remove_shirt', id=shirt.id) }}" method="POST">
+    <input type="submit" value="Delete">
+</form>
 
+</div>
 {% endfor %}
-
+</div>
 
 
 {% endblock %}

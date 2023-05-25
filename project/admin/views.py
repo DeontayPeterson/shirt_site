@@ -100,4 +100,16 @@ def edit_shirt(id):
     print(form.errors)
     return render_template('edit_shirt.html', form=form, shirt=shirt)
 
+@admin_blueprint.route('/dashboard/delete_shirt/<int:id>', methods=['POST'])
+@login_required
+def remove_shirt(id):
+    shirt = Shirt.query.get_or_404(id)
+    db.session.delete(shirt)
+    db.session.commit()
+
+    flash('SHIRT HAS BEEN REMOVED FROM DATABSE.')
+    return redirect(url_for('admin.view'))
+
+    
+
 

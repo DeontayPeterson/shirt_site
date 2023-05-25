@@ -9,6 +9,8 @@ label {
 
 body {
     background-color: #1F7B8C !important;
+    font-family: Arial, sans-serif;
+    
 }
 
 .form-container {
@@ -71,3 +73,115 @@ h1 {
     font-size: 0.9em;
   }
   
+  /* Admin view */ 
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2em;
+}
+
+.shirt-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.75);
+    transition: 0.3s;
+}
+
+.shirt-card:hover {
+    box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.75);
+}
+
+.shirt-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+}
+
+.shirt-card h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 0.5em;
+}
+
+.shirt-card p {
+    color: #777;
+    margin-bottom: 1em;
+}
+
+.shirt-card button {
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.shirt-card button:hover {
+    background: #0056b3;
+}
+
+
+/* CSS for individual shirt editing @@ */ 
+
+
+
+.edit-shirt-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2em;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.edit-shirt-container img {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 100%;
+  height: auto;
+}
+
+.edit-shirt-container form {
+  display: grid;
+  gap: 10px;
+}
+
+.edit-shirt-container form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.edit-shirt-container form input[type="text"], 
+.edit-shirt-container form input[type="number"], 
+.edit-shirt-container form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.edit-shirt-container form button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.edit-shirt-container form button:hover {
+  background-color: #0056b3;
+}
+
