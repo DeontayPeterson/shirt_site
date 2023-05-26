@@ -5,7 +5,9 @@
 <div class="grid-container">
     {% for shirt in shirts %}
     <div class="card">
+      <a href="{{ url_for('shirts.shirt_detail', shirt_id=shirt.id) }}">
       <img src="{{url_for('static', filename='shirt_img/' + shirt.thumbnail)}}" alt="shirt image" class="card-img">
+      </a>
       <div class="card-body">
         <h2 class="card-title">{{shirt.name}}</h2>
         <p class="card-price">{{shirt.price}}</p>

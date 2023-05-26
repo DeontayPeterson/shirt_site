@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>ADMIN DASHBOARD</h1>
-<p>Below is the admin dashboard.</p>
+
 
 <form method="POST" class="form-container", action="{{url_for('admin.add_shirt')}}", enctype="multipart/form-data">
     {{forms['addform'].hidden_tag()}}
