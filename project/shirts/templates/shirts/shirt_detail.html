@@ -15,26 +15,26 @@
     {{order_form.shirt_style.label()}}{{order_form.shirt_style}}
     <br>
     {{order_form.shirt_fit.label}}
-    <br>
+    
     {{order_form.shirt_fit}}
     <br>
-    {{order_form.submit}}
+
+
+    <label>Shirt Color</label>
+<div class="color-row">
+    {% for color in ['Red', 'Green', 'Blue', 'Black', 'White', 'Brown'] %}
+<div class="color-container">
+    <input type="radio" id="color-{{ loop.index }}" name="shirt_color" value="{{ color.lower() }}" required>
+    <label for="color-{{ loop.index }}" class= "colorChoice"style="background-color: {{ color.lower() }}; width: 20px; height: 20px; display: inline-block;"></label>
+</div>
+{% endfor %}
+</div>
+<br>
+
+{{order_form.submit}}
+
 
 </form>
 </div>
-
-{% for color in ['Red', 'Green', 'Blue', 'Black', 'White', 'Brown'] %}
-    <input type="radio" id="color-{{ loop.index }}" name="shirt_color" value="{{ color.lower() }}" required>
-    <label for="color-{{ loop.index }}" class= "colorChoice"style="background-color: {{ color.lower() }}; width: 20px; height: 20px; display: inline-block;"></label>
-{% endfor %}
-
-
-
-
-
-
-
-
-
 
 {% endblock %}

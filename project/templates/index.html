@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 
+{% block content %}
+<h1>Home Page</h1>
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    {% block content %}
-</head>
-<body>
+<header>
+<div class="hero-section">
+<div class="hero-text">
+    <h1>Marshmellow Beef Shirt Store!</h1>
+    <p>High Quality Prints on High Quality Shirts</p>
+    
 
-    <p>HOME</p>
+    <a href="{{url_for('shirts.shirts')}}" class="hero-button">SHOP NOW</a>
 
-    {% endblock %}
-</body>
-</html>
+</div>
+</div>
+</header>
 
+
+
+{% endblock %}

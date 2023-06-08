@@ -1,3 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lato:wght@700&display=swap');
+
+
+/* START CSS colors */
+
+:root {
+  --primary-color: #303841;
+  --secondary-color: #3A4750;
+  --accent-color: #FF4E00;
+  --background-color: #EEEEEE;
+  --highlight-color: #1BCA9B;
+  --text-color: #3A4750;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+  color: var(--accent-color);
+}
+
+button {
+  background-color: var(--highlight-color);
+  color: var(--background-color);
+}
+
+header, footer {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.navbar {
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+}
+
+/* END CSS colors*/
+
+/* START CSS to remove after new CSS is implemented */
+
 form input, form textarea {
     margin-bottom: 10px;
     margin-left: 10px;
@@ -7,11 +55,7 @@ label {
     margin-left: 5px;
 }
 
-body {
-    background-color: #1F7B8C !important;
-    font-family: Arial, sans-serif;
-    
-}
+
 
 .form-container {
     max-width: 600px;
@@ -25,7 +69,7 @@ h1 {
     text-align: center;
 }
 
-
+/* END CSS to remove after new CSS is implemented */
 
 /* Define a responsive grid layout */
 .grid-container {
@@ -73,8 +117,8 @@ h1 {
     font-size: 0.9em;
   }
   
-  /* Admin view */ 
 
+  /* START CSS for admin view */
   .container {
     display: flex;
     flex-wrap: wrap;
@@ -131,11 +175,10 @@ h1 {
     background: #0056b3;
 }
 
-
-/* CSS for individual shirt editing @@ */ 
-
+/* END CSS for admin view */
 
 
+/* START CSS for individual shirts */
 .edit-shirt-container {
   max-width: 600px;
   margin: 0 auto;
@@ -185,9 +228,73 @@ h1 {
   background-color: #0056b3;
 }
 
-
 .colorChoice {
   width: 20px;
   height: 20px;
   display: inline-block;
+  border: 1px solid #333
+}
+
+.color-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.color-row {
+  display: flex;
+  justify-content: space-around;  
+  flex-wrap: nowrap;  
+}
+/* END CSS for individual shirts */
+
+
+/* START CSS for hero image */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 70vh; /* adjust this value as per your requirement */
+  background: url("shirt_img/Screenshot8.png") center center/cover no-repeat; /* replace with your image path */
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ffffff; 
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ffffff;  /* color: var(--primary-color); */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #ffffff; /* color: var(--primary-color); */
+}
+
+.hero-text a.hero-button {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--primary-color);
+  background-color: var(--highlight-color);
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.hero-text a.hero-button:hover {
+  background-color: var(--secondary-color);
+  color: #fff;
 }
